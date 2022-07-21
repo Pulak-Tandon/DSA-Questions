@@ -1,0 +1,35 @@
+package Myclass;
+
+import java.util.Scanner;
+
+public class Search_Array {
+	
+	static int SRCH(int arr[], int size, int ele) {
+		for(int i=0; i<size; i++) {
+			if(arr[i] == ele) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	public static void main(String[] args) {
+		
+		Scanner sc =new Scanner(System.in);
+		int arr[] = new int[10];
+		int size, ele;
+		System.out.print("Enter the size of the array: ");
+		size = sc.nextInt();
+		System.out.println("Input of the original array: ");
+		for(int i=0; i<size; i++) {
+			System.out.print("Element number "+(i+1)+" : ");
+			arr[i] = sc.nextInt();
+		}
+		System.out.println("");
+		System.out.println("Enter the element to be searched: ");
+		ele = sc.nextInt();
+		int pos = SRCH(arr, size, ele);
+		System.out.println(" Element found at position "+(pos+1));
+
+	}
+
+}
