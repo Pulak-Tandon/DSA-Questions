@@ -1,0 +1,49 @@
+package Myclass;
+
+import java.util.Scanner;
+
+public class Insert_Array {
+
+	static int insert(int arr[], int size, int ele, int pos) {
+		
+		if(size == 5) {
+			return size;
+		}
+		int index = pos-1;
+		for(int i= size-1; i>=index ;i--) {
+			arr[i+1] =arr[i];
+		}
+		arr[index] = ele;
+		return (size+1);
+	}
+	public static void main(String[] args) {
+		
+		Scanner obj = new Scanner(System.in);
+		int[] arr = new int[5];
+		int size, pos, ele;
+		System.out.println("Enter the size of the array: ");
+		size = obj.nextInt();
+		System.out.println("Input of Array Elements: ");
+		for(int i=0; i<size; i++) {
+			System.out.print("Element number"+(i+1)+" : ");
+			arr[i] = obj.nextInt();
+		}
+		System.out.println();
+		System.out.println("Displaying Original Array: ");
+		for(int i=0; i<size; i++) {
+			System.out.print(arr[i]+" ");
+		}
+		System.out.println();
+		System.out.println("Enter element to be inserted: ");
+		ele = obj.nextInt();
+		System.out.println("Enter position at which to be inserted: ");
+		pos = obj.nextInt();
+		int returnedsize = insert(arr, size, ele, pos);
+		System.out.println("Displaying New Array: ");
+		for(int i=0; i<returnedsize; i++) {
+			System.out.print(arr[i]+" ");
+			
+		}
+	}
+
+}
