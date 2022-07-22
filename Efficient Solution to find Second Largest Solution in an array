@@ -1,0 +1,45 @@
+package Myclass;
+
+import java.util.Scanner;
+
+public class EfficientSolution_SecondLargestElement {
+	
+	static int SecondLargest(int arr[]) {
+		
+		int res = -1, largest=0;
+		for(int i=1; i< arr.length; i++) {
+			
+			if(arr[i]>arr[largest]) {
+				res = largest;
+				largest = i;
+			}
+			else if(arr[i] != arr[largest]) {
+				if(res == -1 || arr[i] >arr[res]) {
+					res = i;
+				}
+			}
+		}
+		return res;
+	}
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		int[] arr =new int[10];
+		int size, i;
+		System.out.println("Enter the size of the array: ");
+		size = sc.nextInt();
+		System.out.println("Taking Input: ");
+		for(i=0; i<size; i++) {
+			System.out.println("Element number "+(i+1)+ " : ");
+			arr[i] = sc.nextInt();	
+		}
+		System.out.println("Displaying Array Elements: ");
+		for(i=0; i<size; i++) {
+			System.out.print(arr[i]+" ");
+		}
+	    System.out.println();
+	    int seclar = SecondLargest(arr);
+	    System.out.println("Second Largest Element in array: "+ arr[seclar]);
+	    
+	}
+}
