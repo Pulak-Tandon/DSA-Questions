@@ -1,0 +1,39 @@
+package Myclass;
+import java.util.Scanner;
+
+public class EfficientSolution_LargestElement {
+	
+	static int Largest(int arr[]) {
+		
+		int res = 0, i;
+		for( i=1; i<arr.length; i++) {
+			if(arr[i]>arr[res]) {
+				res = i;
+			}
+			
+		}
+		return res;
+	}
+	
+	public static void main(String args[]) {
+		
+		Scanner sc = new Scanner(System.in);
+		int arr[] = new int[10];
+		int size, i, lar;
+		System.out.println("Enter the size of the array: ");
+		size = sc.nextInt();
+		System.out.println("Taking Inputs: ");
+		for( i=0; i<size; i++) {
+			System.out.println("Element number " + (i+1) + " : ");
+			arr[i] = sc.nextInt();
+		}
+		System.out.println("Displaying Original Array: ");
+		for( i=0; i<size; i++) {
+			System.out.print(arr[i]+" ");
+			
+		}
+		System.out.println();
+		lar = Largest(arr);
+		System.out.println("Largest element in the array: "+ arr[lar]);
+	}
+}
