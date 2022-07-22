@@ -1,0 +1,45 @@
+package Myclass;
+
+import java.util.Scanner;
+
+public class NaiveSolutin_LargestElemet {
+	
+	static int Largest(int arr[]) {
+		
+		boolean ele;
+		int i, j;
+		for(i=0; i<arr.length; i++) {
+			ele = true;
+			for(j=0; j<arr.length; j++) {
+				if(arr[i] < arr[j]) {
+					ele = false;
+					break;
+				}
+			}
+			if(ele == true) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	public static void main(String args[]) {
+		
+		Scanner sc =new Scanner(System.in);
+		int arr[] = new int[10];
+		int size, lar;
+		System.out.println("Enter the size of the array= ");
+		size = sc.nextInt();
+		System.out.println("Taking Inputs: ");
+		for(int i=0; i<size; i++){
+			System.out.println("Element number " + (i+1) + " : ");
+			arr[i] = sc.nextInt();
+		}
+		System.out.println("Displaying Array: ");
+		for(int i=0; i<size; i++) {
+			System.out.print(arr[i]+" ");
+		}
+		System.out.println();
+		lar = Largest(arr);
+		System.out.println("Largest element in the array: "+ arr[lar]);
+	}
+}
