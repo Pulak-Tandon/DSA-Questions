@@ -1,0 +1,42 @@
+package Myclass;
+
+import java.util.Scanner;
+
+public class ReverseArray {
+	
+	static void Reverse(int arr[], int size) {
+		
+		int low=0, high= size-1, temp;
+		while(low<high) {
+			temp = arr[low];
+			arr[low] = arr[high];
+			arr[high] = temp;
+			low++;
+			high--;
+		}
+		
+	}
+	public static void main(String args[]) {
+		
+		Scanner sc = new Scanner(System.in);
+		int arr[] = new int[10], size;
+		System.out.println("Enter the size of the array: ");
+		size = sc.nextInt();
+		System.out.println("Taking Input: ");
+		for(int i=0; i<size; i++) {
+			System.out.println("Element number "+(i+1)+" : ");
+			arr[i] = sc.nextInt();
+		}
+		System.out.println("Displaying Array: ");
+		for(int i=0; i<size; i++) {
+			System.out.print(arr[i]+" ");
+			
+		}
+		System.out.println();
+		Reverse(arr,size);
+		System.out.println("Displaying Reversed Array: ");
+		for(int i=0; i<size; i++) {
+			System.out.print(arr[i]+" ");
+		}
+	}
+}
