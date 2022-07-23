@@ -1,0 +1,40 @@
+package Myclass;
+import java.util.Scanner;
+
+public class EfficientSol_RemoveDuplicate {
+	
+	static int RemoveDuplicate(int arr[], int size) {
+		
+		int res=1;
+		for(int i =1;i <size; i++) {
+			if(arr[i] != arr[res-1]) {
+				arr[res] = arr[i];
+				res++;
+			}
+		}
+		return res;
+	}
+	public static void main(String args[]) {
+		
+		Scanner sc = new Scanner(System.in);
+		int arr[] = new int[10], size, i;
+		System.out.println ("Enter the size of the array: ");
+		size = sc.nextInt();
+		System.out.println("Taking Input: ");
+		for(i=0; i<size; i++) {
+			System.out.println("Element number "+(i+1)+" : ");
+			arr[i] = sc.nextInt();
+		}
+		System.out.println("Displaying Array: ");
+		for(i=0; i<size; i++) {
+			System.out.print(arr[i]+" ");
+		}
+		System.out.println();
+		size = RemoveDuplicate(arr, size);
+		System.out.println("Displaying New Array: ");
+		for(i=0; i<size; i++) {
+			System.out.print(arr[i]+" ");
+		}
+	}
+	
+}
