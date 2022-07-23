@@ -1,0 +1,48 @@
+package Myclass;
+
+import java.util.Scanner;
+
+public class EfficientSol_MazProbDiff {
+	
+	static void MaxProbDiff(int arr[], int size) {
+		
+		int res = arr[1]-arr[0], minval = arr[0];
+		
+		for(int i=1; i<size; i++) {
+			
+			if((arr[i] - minval) > res) {
+				res = arr[i] - minval;
+			}
+			else {
+				res = res;
+			}
+			if(arr[i]>minval) {
+				minval = arr[i];
+			}
+			else {
+				minval = minval;
+			}
+		}
+		System.out.println("Maximum Difference: "+ res);
+	}
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		int arr[] = new int[10];
+		System.out.println("Enter the size of the array: ");
+		int size = sc.nextInt();
+		System.out.println("Taking Inputs: ");
+		for(int i=0; i<size; i++) {
+			System.out.println("Element number "+(i+1)+" ");
+			arr[i] = sc.nextInt();
+		}
+		System.out.println("Displaying Array: ");
+		for(int i=0; i<size; i++) {
+			System.out.print(arr[i]+" ");
+		}
+		System.out.println();
+		MaxProbDiff(arr, size);
+		
+	}
+
+}
