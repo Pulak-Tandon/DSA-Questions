@@ -1,0 +1,43 @@
+package Myclass;
+
+import java.util.Scanner;
+
+public class EffcientSol_Zeoestoend {
+	
+	static int ZeroesToEnd(int arr[], int size) {
+		
+		int count=0;
+		for(int i=0; i<size; i++) {
+			if(arr[i] != 0) {
+				int temp = arr[i];
+				arr[i] = arr[count];
+				arr[count] = temp;
+				count++;
+			}
+		}
+		return size;
+	}
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		int arr[] = new int[10], size;
+		System.out.println("Enter the size of the array: ");
+		size = sc.nextInt();
+		System.out.println("Taking array Inputs: ");
+		for(int i=0; i<size; i++) {
+			System.out.println("Element number "+(i+1)+" : ");
+			arr[i] = sc.nextInt();
+		}
+		System.out.println("Displaying Array: ");
+		for(int i=0; i<size; i++) {
+			System.out.print(arr[i]+" ");
+		}
+		ZeroesToEnd(arr,size);
+		System.out.println();
+		System.out.println("Displaying Array: ");
+		for(int i=0; i<size; i++) {
+			System.out.print(arr[i]+" ");
+		}
+	}
+
+}
