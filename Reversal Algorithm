@@ -1,0 +1,52 @@
+package Myclass;
+
+import java.util.Scanner;
+
+public class ReversalAlgorithm {
+	
+	static void LeftRotateByDPlaces(int arr[], int size, int d) {
+		
+		Swap(arr, 0 ,d-1);
+		Swap(arr, d, size-1);
+		Swap(arr, 0, size-1);
+		
+	}
+	static void Swap(int arr[], int low, int high) {
+		
+		int temp;
+		while(low<high) {
+			temp =arr[low];
+			arr[low] = arr[high];
+			arr[high] = temp;
+			low++;
+			high--;
+		}
+		
+	}
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		int arr[] = new int[10], size, d;
+		System.out.println("Enter the size of the array: ");
+		size = sc.nextInt();
+		System.out.println("Taking Input: ");
+		for(int i=0; i<size; i++) {
+			System.out.println("Element number "+(i+1)+" : ");
+			arr[i] = sc.nextInt();
+		}
+		System.out.println("Displaying Array: ");
+		for(int i=0; i<size; i++) {
+			System.out.print(arr[i]+" ");
+		}
+		System.out.println();
+		System.out.println("Enter number of times to left rotate: ");
+		d =sc.nextInt();
+		LeftRotateByDPlaces(arr, size, d);
+		System.out.println("Displaying new array:");
+		for(int i=0; i<size; i++) {
+			System.out.print(arr[i]+" ");
+		}
+
+	}
+
+}
