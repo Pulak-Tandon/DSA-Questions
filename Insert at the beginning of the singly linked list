@@ -1,0 +1,53 @@
+package Myclass;
+
+class Nodes{
+	
+	int data;
+	Nodes next;
+	Nodes(int x){
+		data = x;
+		next = null;
+	}
+}
+
+public class Inser_Beg_LL {
+
+	public static Nodes InsertBeg( Nodes head, int y) {
+		
+		Nodes temp = new Nodes(y);
+		temp.next = head;
+		head = temp;
+		return head;
+		
+	}
+	public static void printLinkedList(Nodes head) {
+		
+		 Nodes current = head;
+		 while(current != null) {
+			 System.out.print(current.data+" ");
+			 current = current.next;
+		 }
+		 
+	}
+	public static void main(String args[]) {
+		
+		Nodes head = new Nodes(10);
+		head.next = new Nodes(20);
+		head.next.next = new Nodes(30);
+		
+		System.out.println("Linked List before Insertion: ");
+		printLinkedList(head);
+		
+		System.out.println();
+		
+		head = InsertBeg(head, 50);
+		head = InsertBeg(head, 40);
+		
+		System.out.println("Linked List after Insertion: ");
+		printLinkedList(head);
+		
+		System.out.println();
+		
+	}
+
+}
