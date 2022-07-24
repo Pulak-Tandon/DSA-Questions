@@ -1,0 +1,66 @@
+package Myclass;
+
+import java.util.Scanner;
+
+class ele{
+	int data;
+	ele next;
+	ele(int x){
+		data = x;
+		next = null;
+	}
+}
+public class SearchRecursive_LL {
+
+	static int SearchRec(ele head, int x) {
+		
+		
+		if(head == null) {
+			return -1;
+		}
+		else if (head.data == x) {
+			return 1;
+		}
+		else {
+			int res = SearchRec(head.next, x);
+			if(res == -1)
+				return -1;
+			else
+				return res+1;
+		}
+		
+	}
+	static ele printLinkedList(ele head) {
+		
+		ele temp = head;
+		while(temp.next != null) {
+			System.out.print(temp.data+" ");
+			temp = temp.next;
+			
+		}
+		return head;
+	}
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		ele head = new ele(10);
+		head.next = new ele(20);
+		head.next.next = new ele(30);
+		head.next.next.next = new ele(40);
+		head.next.next.next.next = new ele(50);
+		
+		System.out.println("Diplaying Linked List: ");
+		printLinkedList(head);
+		System.out.println();
+		
+		System.out.println("Enter the element to be search: ");
+		int x = sc.nextInt();
+		
+		int y = SearchRec(head, x);
+		if( y== -1)
+			System.out.println("Element not found");
+		else
+			System.out.println("Element found  at pos "+ y);
+	}
+
+}
