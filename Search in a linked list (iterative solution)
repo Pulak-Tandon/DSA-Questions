@@ -1,0 +1,72 @@
+package Myclass;
+
+import java.util.Scanner;
+
+class NodeList{
+	int data;
+	NodeList next;
+	NodeList(int x){
+		data = x;
+		next = null;
+	}
+}
+
+public class Search_LL {
+
+	static NodeList printList(NodeList head) {
+		
+		NodeList current = head;
+		while(current != null) {
+			
+			System.out.print(current.data+" ");
+			current = current.next;
+		}
+		System.out.println();
+		return head;
+	}
+	static int Searching(NodeList head, int search) {
+		
+		int count=1;
+		NodeList temp = head;
+		
+		while( temp != null) {
+			if(search == temp.data) {
+				return count;
+			}
+			else {
+				count++;
+				temp = temp.next;
+			}
+		}
+		return -1;
+	}
+	
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		
+		NodeList head = new NodeList(10);
+		head.next = new NodeList(20);
+		head.next.next = new NodeList(30);
+		head.next.next.next = new NodeList(40);
+		head.next.next.next.next = new NodeList(50);
+		
+		System.out.println("Displaying Linked List: ");
+		printList(head);
+		
+		int search;
+		System.out.println("Enter the element to be searched: ");
+		search = sc.nextInt();
+		
+		int count = Searching(head, search);
+		if(count > 0) {
+			System.out.println("Element "+ 20 + "found at position "+ count );
+		}
+		else {
+			System.out.println("Element not found");
+		}
+		
+		
+	}
+
+}
