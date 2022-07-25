@@ -1,0 +1,68 @@
+package Myclass;
+
+import java.util.Scanner;
+
+class Nodethis{
+	int data;
+	Nodethis next;
+	Nodethis prev;
+	Nodethis( int x){
+		data = x;
+		next = null;
+		prev = null;
+	}
+}
+public class Insert_at_end {
+ 
+	static Nodethis Insert_at_end(Nodethis head, int ele) {
+		
+		Nodethis curr = new Nodethis(ele);
+		Nodethis temp = head;
+		while(temp.next != null) {
+			temp = temp.next;
+		}
+		temp.next = curr;
+		curr.prev = temp;
+		
+		return head;
+	}
+	static Nodethis printLinkedList(Nodethis head) {
+		
+		Nodethis curr = head;
+		
+		while(curr != null) {
+			System.out.print(curr.data+" ");
+			curr = curr.next;
+		}
+		System.out.println();
+		return head;
+	}
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		Nodethis head = new Nodethis(10);
+		Nodethis temp1 = new Nodethis(20);
+		Nodethis temp2 = new Nodethis(30);
+		Nodethis temp3 = new Nodethis(40);
+		
+		head.next = temp1;
+		temp1.next = temp2;
+		temp2.next = temp3;
+		temp3.next = null;
+		temp3.prev = temp2;
+		temp2.prev = temp1;
+		temp1.prev = head;
+		
+		System.out.println("Linked List before Insertion: ");
+		head = printLinkedList(head);
+		
+		System.out.println("Enter the element to be inserted: ");
+		int ele = sc.nextInt();
+		head = Insert_at_end(head, ele);
+		
+		System.out.println("Linked List After Insertion: ");
+		head = printLinkedList(head);
+
+	}
+
+}
