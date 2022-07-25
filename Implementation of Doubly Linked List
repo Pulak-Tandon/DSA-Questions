@@ -1,0 +1,41 @@
+package Myclass;
+
+class MyNode{
+	int data;
+	MyNode next;
+	MyNode prev;
+	MyNode(int x){
+		data = x;
+		next = null;
+		prev = null;
+	}
+}
+public class DoublyLL_Implementation {
+
+	static MyNode printLinkedList(MyNode head) {
+		
+		MyNode temp = head;
+		while(temp != null) {
+			System.out.print(temp.data+" ");
+			temp = temp.next;
+		}
+		System.out.println();
+		
+		return head;
+	}
+	public static void main(String[] args) {
+		
+		MyNode head = new MyNode(10);
+		MyNode temp1 = new MyNode(20);
+		MyNode temp2 = new MyNode(30);
+		head.next = temp1;
+		temp1.prev = head;
+		temp1.next = temp2;
+		temp2.prev = temp1;
+		
+		System.out.println("Displaying Linked List: ");
+		printLinkedList(head);
+
+	}
+
+}
