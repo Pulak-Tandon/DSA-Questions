@@ -1,0 +1,64 @@
+package Myclass;
+
+class Nodeclas{
+	int data;
+	Nodeclas next;
+	Nodeclas prev;
+	Nodeclas(int x){
+		prev = null;
+		next = null;
+		data = x;
+	}
+}
+public class Reverse_DLL {
+
+	static Nodeclas Reverse_DLL(Nodeclas head) {
+		
+		Nodeclas previous = null, current = head;
+		
+	    while(current != null) {
+	    	previous = current.prev;
+	    	current.prev = current.next;
+	    	current.next = previous;
+	    	
+	    	current = current.prev;
+	    }
+		
+		return previous.prev;
+	}
+	static Nodeclas printLinkedList(Nodeclas head) {
+		
+		Nodeclas curr = head;
+		
+		while(curr != null) {
+			System.out.print(curr.data+" ");
+			curr = curr.next;
+		}
+		System.out.println();
+		return head;
+	}
+
+	public static void main(String[] args) {
+		
+		Nodeclas head = new Nodeclas(10);
+		Nodeclas temp1 = new Nodeclas(20);
+		Nodeclas temp2 = new Nodeclas(30);
+		Nodeclas temp3 = new Nodeclas(40);
+		
+		head.next = temp1;
+		temp1.next = temp2;
+		temp2.next = temp3;
+		temp3.prev = temp2;
+		temp2.prev = temp1;
+		temp1.prev = head;
+		
+		System.out.println("Linked List before Reverse: ");
+		head = printLinkedList(head);
+		
+		head = Reverse_DLL(head);
+		
+		System.out.println("Linked List After Reverse: ");
+		head = printLinkedList(head);
+	
+	}
+}
