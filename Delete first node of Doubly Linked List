@@ -1,0 +1,60 @@
+package Myclass;
+
+class Nodelist{
+	int data;
+	Nodelist next;
+	Nodelist prev;
+	Nodelist(int x){
+		data = x;
+		prev = null;
+		next = null;
+		
+	}
+}
+public class Delete_FirstNode_DLL {
+
+	static Nodelist printLinkedList(Nodelist head) {
+		
+		Nodelist current = head;
+		while(current.next != null) {
+			System.out.print(current.data+" ");
+			current = current.next;
+		}
+		System.out.println();
+		return head;
+	}
+	
+	static Nodelist Delete(Nodelist head) {
+		
+		if(head == null || head.next == null) {
+			return head;
+		}
+	
+		head = head.next;
+		head.prev = null;
+		return head;
+	}
+	
+	public static void main(String[] args) {
+		
+		Nodelist head = new Nodelist(10);
+		Nodelist temp1 = new Nodelist(20);
+		Nodelist temp2 = new Nodelist(30);
+		Nodelist temp3 = new Nodelist(40);
+		head.next = temp1;
+		temp1.next = temp2;
+		temp2.next = temp3;
+		temp3.prev = temp2;
+		temp2.prev = temp1;
+		temp1.prev = head;
+		
+		System.out.println("Displaying Linked List Before Deletion: ");
+		head = printLinkedList(head);
+		
+		head = Delete(head);
+		
+		System.out.println("Displaying Linked List After Deletion: ");
+		head = printLinkedList(head);
+	}
+
+}
