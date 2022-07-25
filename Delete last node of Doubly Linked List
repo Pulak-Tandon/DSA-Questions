@@ -1,0 +1,66 @@
+package Myclass;
+
+class nod{
+	int data;
+	nod next;
+	nod prev;
+	nod(int x){
+		data = x;
+		next = null;
+		prev = null;
+	}
+}
+public class Delete_Lastelement_DLL {
+
+	static nod Delete(nod head) {
+		
+		if(head == null)
+			return head;
+		else if(head.next == null)
+			return null;
+		else {
+			nod curr = head;
+			while(curr.next.next != null) {
+				curr = curr.next;
+			}
+			curr.next.prev = null;
+			curr.next = null;
+		}
+		
+		return head;
+	}
+	static nod printlinkedlist(nod head) {
+		
+		nod curr = head;
+		while(curr.next != null) {
+			System.out.print(curr.data+" ");
+			curr = curr.next;
+		}
+		System.out.println();
+		return head;
+	}
+	public static void main(String[] args) {
+		
+		nod head = new nod(10);
+		nod temp1 = new nod(20);
+		nod temp2 = new nod(30);
+		nod temp3 = new nod(40);
+		head.next = temp1;
+		temp1.next = temp2;
+		temp2.next = temp3;
+		temp3.prev= temp2;
+		temp2.prev = temp1;
+		temp1.prev = head;
+		
+		System.out.println("Displaying the linked list before deletion: ");
+		head = printlinkedlist(head);
+		
+		head = Delete(head);
+		
+		System.out.println("Displaying the linked list after deletion: ");
+		head = printlinkedlist(head);
+			
+
+	}
+
+}
