@@ -1,0 +1,55 @@
+package Myclass;
+
+import java.lang.reflect.Array;
+import java.util.Scanner;
+
+class MyNodeClass {
+	int data;
+	MyNodeClass next;
+	MyNodeClass(int x){
+		data = x;
+		next = null;
+	}
+}
+public class Reverse_SLL {
+
+	static MyNodeClass printLinkedList(MyNodeClass head) {
+		
+		MyNodeClass curr = head;
+		while(curr != null) {
+			System.out.print(curr.data+" ");
+			curr = curr.next;
+		}
+		System.out.println();
+		return head;
+	}
+	public static void main(String[] args) {
+	
+		Scanner sc = new Scanner(System.in);
+		MyNodeClass head = new MyNodeClass(10);
+		head.next = new MyNodeClass(20);
+		head.next.next = new MyNodeClass(30);
+		head.next.next.next = new MyNodeClass(40);
+		
+		System.out.println("Displaying Linked List: ");
+		printLinkedList(head);
+		
+		head = Reverse(head);
+
+		System.out.println("Displaying Reversed Linked List: ");
+		printLinkedList(head);
+		
+	}
+	public static MyNodeClass Reverse(MyNodeClass head) {
+		
+		MyNodeClass previous = null, link = null;
+		while(head != null) {
+			link = head.next;
+			head.next = previous;
+			previous = head;
+			head = link;
+		}
+		head = previous;
+		return head;	
+	}
+}
