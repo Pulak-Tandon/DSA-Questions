@@ -1,0 +1,65 @@
+package Myclass;
+
+import java.util.Scanner;
+
+class thisNode{
+	int data;
+	thisNode next;
+	thisNode prev;
+	thisNode(int x){
+		data = x;
+		next = null;
+		prev = null;
+	}
+}
+public class Insert_at_beg_DLL {
+
+	static thisNode Insert_at_beg(thisNode head, int ele) {
+		
+		thisNode curr = new thisNode(ele);
+		
+		curr.next = head;
+		curr.prev = null;
+		head = curr;
+		return head;
+	}
+	static thisNode printLinkedList(thisNode head) {
+		
+		thisNode curr = head;
+		while(curr != null) {
+			System.out.print(curr.data+" ");
+			curr = curr.next;
+		}
+		System.out.println();
+		return head;
+	}
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		thisNode head = new thisNode(10);
+		thisNode temp1 = new thisNode(20);
+		thisNode temp2 = new thisNode(30);
+		thisNode temp3 = new thisNode(40);
+		
+		head.next = temp1;
+		temp1.next = temp2;
+		temp2.next = temp3;
+		temp3.next = null;
+		temp3.prev = temp2;
+		temp2.prev = temp1;
+		temp1.prev = head;
+		
+		System.out.println("Displaying Doubly Linked List before insertion: ");
+		head = printLinkedList(head);
+		
+		System.out.println("Enter the element to be inserted: ");
+		int ele = sc.nextInt();
+		
+		head = Insert_at_beg(head, ele);
+		
+		System.out.println("Displaying Doubly Linked List after insertion: ");
+		head = printLinkedList(head);
+
+	}
+
+}
