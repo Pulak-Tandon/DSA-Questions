@@ -1,0 +1,39 @@
+package Myclass;
+
+class NOde{
+	int data;
+	NOde next;
+	NOde(int x){
+		data = x;
+		next = null;
+	}
+}
+public class Implementation_CLL {
+
+	static NOde printlinkedlist(NOde head) {
+		
+		if(head == null) {
+			return head;
+		}
+		System.out.print(head.data+" ");
+		for(NOde point = head.next; point != head; point = point.next) {
+			System.out.print(point.data+ " ");
+		}
+		System.out.println();
+		return head;
+		
+	}
+	public static void main(String[] args) {
+		
+		NOde head = new NOde(10);
+		head.next = new NOde(20);
+		head.next.next = new NOde(30);
+		head.next.next.next = new NOde(40);
+		head.next.next.next.next = head;
+		
+		System.out.println("Displaying Cicular Linked List: ");
+		head = printlinkedlist(head);
+
+	}
+
+}
