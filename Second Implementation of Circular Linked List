@@ -1,0 +1,39 @@
+
+
+class NODES{
+	int data;
+	NODES next;
+	NODES(int x){
+		data = x;
+		next =null;
+	}
+}
+class SecondImplemetation_CLL {
+
+	static NODES printLinkedList(NODES head) {
+		
+		if(head == null) {
+			return head;
+		}
+		NODES temp = head;
+		do {
+			System.out.print(temp.data+" ");
+			temp = temp.next;
+		}while(temp != head);
+		System.out.println();
+		return head;
+		
+	}
+	public static void main(String[] args) {
+		
+		NODES head = new NODES(10);
+		head.next = new NODES(20);
+		head.next.next = new NODES(30);
+		head.next.next.next = new NODES(40);
+		
+		System.out.println("Displaying Linked List: ");
+		printLinkedList(head);
+
+	}
+
+}
